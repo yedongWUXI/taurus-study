@@ -1,7 +1,7 @@
 package com.kaituo.comparison.back.core.service.redis.impl;
 
-import com.dist.constants.RedisConstants;
-import com.dist.service.RedisMethodsCacheService;
+import com.kaituo.comparison.back.core.entity.redis.RedisConstants;
+import com.kaituo.comparison.back.core.service.redis.RedisMethodsCacheService;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;

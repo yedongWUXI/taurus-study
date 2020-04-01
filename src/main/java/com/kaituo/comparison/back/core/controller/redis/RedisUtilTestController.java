@@ -1,6 +1,6 @@
 package com.kaituo.comparison.back.core.controller.redis;
 
-import com.dist.utils.RedisUtil;
+import com.kaituo.comparison.back.common.util.RedisUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

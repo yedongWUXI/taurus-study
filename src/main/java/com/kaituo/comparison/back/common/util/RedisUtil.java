@@ -1,6 +1,6 @@
 package com.kaituo.comparison.back.common.util;
 
-import com.dist.constants.Status;
+import com.kaituo.comparison.back.core.entity.redis.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.BoundListOperations;
 import org.springframework.data.redis.core.RedisTemplate;

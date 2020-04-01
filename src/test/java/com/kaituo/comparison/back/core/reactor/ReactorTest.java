@@ -17,5 +17,6 @@ public class ReactorTest {
     @Test
     public void test() {
         Flux.just("xiaoyu").map(v -> v.contains("xiaoyu")).filter(Objects::nonNull).subscribe(System.out::println);
+        Flux.range(1, 10).subscribe(System.out::println);
     }
 }
