@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kaituo.comparison.back.core.mapper.system.SysLogMapper">
+    <resultMap id="BaseResultMap" type="com.kaituo.comparison.back.core.entity.system.SysLog">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="uid" jdbcType="VARCHAR" property="uid"/>
+        <result column="ip" jdbcType="VARCHAR" property="ip"/>
+        <result column="ajax" jdbcType="INTEGER" property="ajax"/>
+        <result column="uri" jdbcType="VARCHAR" property="uri"/>
+        <result column="params" jdbcType="VARCHAR" property="params"/>
+        <result column="http_method" jdbcType="VARCHAR" property="httpMethod"/>
+        <result column="class_method" jdbcType="VARCHAR" property="classMethod"/>
+        <result column="action_name" jdbcType="VARCHAR" property="actionName"/>
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        id, username, `uid`, ip, ajax, uri, params, http_method, class_method, action_name,
+        create_date
+    </sql>
+
+    <select id="selectLogByDto" parameterType="com.kaituo.comparison.back.core.entity.system.SysLog"
+            resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_log
+        where 1=1
+        <if test="username != null">
+            and username = #{username,jdbcType=VARCHAR}
+        </if>
+
+    </select>
+
+    <select id="selectLogByParam" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_log
+        where 1=1
+        <if test="username != null">
+            and username = #{username,jdbcType=VARCHAR}
+        </if>
+
+        <if test="uri != null">
+            and uri = #{uri,jdbcType=VARCHAR}
+        </if>
+
+
+    </select>
+
+
+    <select id="selectLogByUserNames" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_log
+        where 1=1
+
+        AND username IN
+
+        <foreach collection="listUserNames" index="index" item="item" open="("
+                 separator="," close=")">
+            #{item}
+        </foreach>
+
+
+    </select>
+
+
+    <delete id="deleteLogById" parameterType="java.lang.String">
+        delete from sys_log
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
+
+
+    <insert id="insertLogBatch" parameterType="java.lang.String">
+        INSERT INTO sys_log
+
+        (id, username, `uid`, ip, ajax, uri, params, http_method, class_method, action_name,
+        create_date)
+        VALUES
+        <foreach collection="sysLogs" index="index" item="item"
+                 separator=",">
+            (
+            #{item.id,jdbcType=VARCHAR},
+            #{item.username,jdbcType=VARCHAR},
+            #{item.uid,jdbcType=VARCHAR},
+            #{item.ip,jdbcType=VARCHAR},
+            #{item.ajax,jdbcType=TINYINT},
+            #{item.uri,jdbcType=VARCHAR},
+            #{item.params,jdbcType=VARCHAR},
+            #{item.httpMethod,jdbcType=VARCHAR},
+            #{item.classMethod,jdbcType=VARCHAR},
+            #{item.actionName,jdbcType=VARCHAR},
+            #{item.createDate,jdbcType=VARCHAR}
+            )
+        </foreach>
+
+    </insert>
+
+</mapper>
