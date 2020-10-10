@@ -141,14 +141,6 @@
         </dependency>
 
 
-        <!--&lt;!&ndash;fastjson&ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>com.alibaba</groupId>-->
-            <!--<artifactId>fastjson</artifactId>-->
-            <!--<version>1.2.46</version>-->
-        <!--</dependency>-->
-
-
         <!--Test-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -156,12 +148,12 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
-            <scope>true</scope>
-        </dependency>
+        <!--springboot的热部署 自我感觉没啥用-->
+        <!--<dependency>-->
+        <!--<groupId>org.springframework.boot</groupId>-->
+        <!--<artifactId>spring-boot-devtools</artifactId>-->
+        <!--<optional>true</optional>-->
+        <!--</dependency>-->
 
 
 
