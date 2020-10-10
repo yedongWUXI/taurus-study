@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.MethodInvokingFactoryBean;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import javax.servlet.Filter;
 import java.util.HashMap;
@@ -26,7 +27,7 @@ import java.util.Map;
  *
  *
  */
-//@Configuration
+@Configuration
 public class ShiroConfiguration {
 
     private final Logger log = LoggerFactory.getLogger(ShiroConfiguration.class);
@@ -58,6 +59,7 @@ public class ShiroConfiguration {
         filterChainDefinitionMap.put("/swagger-ui.html", "anon");
         filterChainDefinitionMap.put("/swagger-resources/**", "anon");
         filterChainDefinitionMap.put("/account/**", "anon");
+        filterChainDefinitionMap.put("/common/**", "anon");
 
         filterChainDefinitionMap.put("/**", "jwt");
 
